@@ -82,48 +82,91 @@ Se ingresan datos de 100 alumnos (legajo, apellido, edad), Mostrar mayor edad, l
 '''
 Cargar un vector de 100 elementos del tipo str con frases. Mostar: frases con mayor cantidad de palabras(puede repetirse)
 '''
-elementos = 2
-auxi1 = [int()] * elementos
-vfrase = [str()] * elementos
+# def cantidad_palabras(pdatos):
+#     cp = int()
+#     x = int()
+#     xx = int()
+#     frase = str()
+#     largo_frase = str()
+#     vauxi = [int()] * 2
+
+#     for x in range(0, 2):
+#         frase = pdatos[x]
+#         largo_frase = len(frase)
+#         cp = 0
+#         for xx in range(0, largo_frase):
+#             if frase[xx] == " ":
+#                 cp = cp + 1
+#         vauxi[x] = cp
+#     return(vauxi)
+
+# def mayor(pauxi1):
+#     elementos = 2
+#     c = int()
+#     mayor = int()
+    
+#     for c in range(0, elementos):
+#         if pauxi1[c] > mayor:
+#             mayor = pauxi1[c]
+#     return(mayor)
+
+
+# #prg.ppal
+# elementos = 2
+# auxi1 = [int()] * elementos
+# vfrase = [str()] * elementos
+# frase = str()
+# x = int()
+
+# for x in range(0, elementos):
+#     frase = input("ingrese una frase: ")
+#     vfrase[x] = frase
+#     auxi1 = cantidad_palabras(vfrase)
+#     maxi = mayor(auxi1)
+# for x in range(0, elementos):
+#     if auxi1[x] == maxi:
+#         print(vfrase[x])
+
+'''Diseñar una funcion que recibe una cadena como parametro de entrada con el sig formato:
+cadena = apellido#ciudad#edad#especialidad#
+Como se puede apreciar, el separador es el caracter #
+Dicha funcion debera retornar un vector de 4 elementos tipo cadena desde:
+elemento0 : apellido
+elemento1: ciudad
+elemento2: edad
+elemento3: especialidad
+crear un prg.ppaL que use esta funcion
+
+'''
+
+def cadena(pfrase):
+    # pfrase = apellidp#ciudad#edad#especialidad
+    c = int()
+    e = int()
+    vi = int()
+    largo_frase = int()
+    vcadena = [str()] * 4
+    auxicad = str()
+
+    largo_frase = len(pfrase)
+    for c in range(0, largo_frase):
+        if pfrase[c] == "#":
+            auxicad = pfrase[vi:c]
+            vcadena[e] = auxicad
+            vi = c + 1
+            e = e + 1
+    auxicad = pfrase[vi:largo_frase]
+    vcadena[e] = auxicad
+    return(vcadena)
+
+#prg.ppal
 frase = str()
 x = int()
+vfrase = [str()] * 4
 
-def cantidad_palabras(pdatos):
-    cp = int()
-    x = int()
-    xx = int()
-    frase = str()
-    largo_frase = str()
-    elementos = 2
-    vauxi = [int()] * elementos
-
-    for x in range(0, elementos):
-        frase = pdatos[x]
-        largo_frase = len(frase)
-        cp = 0
-        for xx in range(0, largo_frase):
-            if frase[xx] == " ":
-                cp = cp + 1
-        vauxi[x] = cp
-    return(vauxi)
-
-def mayor(pauxi1):
-    elementos = 2
-    c = int()
-    mayor = int()
-    
-    for c in range(0, elementos):
-        if pauxi1[c] > mayor:
-            mayor = pauxi1[c]
-    return(mayor)
+frase = input("ingrese frase: ")
+vfrase = cadena(frase)
+for x in range(0,4):
+    print(vfrase[x])
 
 
-
-for x in range(0, elementos):
-    frase = input("ingrese una frase: ")
-    vfrase[x] = frase + " "
-    auxi1 = cantidad_palabras(vfrase)
-    maxi = mayor(auxi1)
-for x in range(0, elementos):
-    if auxi1[x] == maxi:
-        print(vfrase[x])
