@@ -80,7 +80,7 @@ Se ingresan datos de 100 alumnos (legajo, apellido, edad), Mostrar mayor edad, l
 #         print(f'nro legajo {vlegajo[x]}, apellido {vapellido[x]}, edad mas grande {vedad[x]}')
 
 '''
-Cargar un vector de 100 elementos del tipo str con frases. Mostar: frases con mayor cantidad de palabras(puede repetirse)
+Cargar un vector de 100 elementos del tipo str con frases. Mostar: frase con mayor cantidad de palabras(puede repetirse)
 '''
 # def cantidad_palabras(pdatos):
 #     cp = int()
@@ -312,32 +312,120 @@ input con separacion
 '''
 Crear funcion que devueva la frase con mayor consonantes
 '''
-def consonantes(pfrase):
-    largo = int()
-    frase = str()
-    car = int()
-    cc = int()
-    auxi = [int()] * 2
-    x = y = w = z = int()
-    maxi = int()
+# def consonantes(pfrase):
+#     largo = int()
+#     frase = str()
+#     car = int()
+#     cc = int()
+#     auxi = [int()] * 2
+#     x = y = w = z = int()
+#     maxi = int()
 
-    for x in range(0,2):
-        frase = (pfrase).upper()
-        largo = len(frase[x])
-        for y in range(0,largo):
-            car = ord(frase[y])
-            if car >= 65 and car <= 90:
-                match frase[y]:
-                    case "A" | "E" | "I" | "O" | "U":
-                        print(" ")
-                    case _else :
-                        cc = cc + 1
-        auxi[x] = cc
-        cc = 0
-    for w in range(0,2):
-        if auxi[w] > maxi:
-            maxi = auxi[w]
-    for z in range(0,2):
-        if auxi[z] == maxi:
-            print(pfrase[z])
-    return
+#     for x in range(0,2):
+#         frase = (pfrase).upper()
+#         largo = len(frase[x])
+#         for y in range(0,largo):
+#             car = ord(frase[y])
+#             if car >= 65 and car <= 90:
+#                 match frase[y]:
+#                     case "A" | "E" | "I" | "O" | "U":
+#                         print(" ")
+#                     case _else :
+#                         cc = cc + 1
+#         auxi[x] = cc
+#         cc = 0
+#     for w in range(0,2):
+#         if auxi[w] > maxi:
+#             maxi = auxi[w]
+#     for z in range(0,2):
+#         if auxi[z] == maxi:
+#             print(pfrase[z])
+#     return
+
+'''
+Carga: debera permitir cargar un vector de 100 elementos con frases.
+CantiPalabras: debera recibir un vector cargado como parametro y devolver un vector de 100 elementos del tipo 
+               entero con la cantidad de palabras que tiene el vector de carga.
+Imprimir: este modulo recibe como parametros el vector entero devuelto por CantiPlabras y debera mostrar los nro de elemento
+          donde esta el mayor nro de palabras. (puede estar repetido)
+Realizar programa principal.
+'''
+
+# def cantiPalabras(pfrase):
+#     largo_frase = int()
+#     frase = str()
+#     vector_cp = [int()] * 100
+#     cp = int()
+#     y = x = int()
+    
+#     for x in range(0, 10):
+#         frase = pfrase[x]
+#         largo_frase = len(frase)
+#         cp = 0
+#         for y in range(0, largo_frase):
+#             if frase[y] == " ":
+#                 cp = cp + 1
+#         vector_cp[x] = cp
+#     return(vector_cp)
+
+# def imprimir(pmaxi):
+#     maxicp = int()
+#     c = int()
+
+#     for c in range(0,10):
+#         if pmaxi[c] > maxicp:
+#             maxicp = pmaxi[c]
+#     return(maxicp)
+    
+# #prg.ppal
+# frase = str()
+# vfrase = [str()] * 100
+# vauxi_cp = [int()] * 100
+# mayor = int()
+# x = int()
+
+# for x in range(0,10):
+#     frase = input("Ingrese una frase: ")
+#     vfrase[x] = frase
+#     vauxi_cp = cantiPalabras(vfrase)
+#     mayor = imprimir(vauxi_cp)
+# for x in range(0,10):
+#     if vauxi_cp[x] == mayor:
+#         print(f'la mayor frase esta en el elmento {x}')
+
+'''
+Se ingresan los datos de 200 empleados de una empresa:
+    legajo: int
+    sueldo: float
+    fecha: str()
+Mostar el legajo y sueldo de la persona con mayor antiguedad. (puede repetirse)
+'''
+def convertir(pfecha):
+    fechastr = str()
+    fechaint = int()
+
+    fechastr = pfecha[6:] + pfecha[3:5] + pfecha[:2]
+    fechaint = int(fechastr)
+    return(fechaint)
+
+legajo = int()
+sueldo = float()
+fecha = str()
+vfecha = [int()] * 200
+vlegajo = [int()] * 200
+vsueldo = [float()] * 200
+minf = 30000000
+
+for x in range(0,2):
+    legajo = int(input("legajo: "))
+    sueldo = float(input("sueldo: "))
+    fecha = input("fecha [dd/mm/aaaa]: ")
+
+    vfecha[x] = convertir(fecha)
+    if vfecha[x] <= minf:
+        minf = vfecha[x]
+        vlegajo[x] = legajo
+        vsueldo[x] = sueldo
+for x in range(0,2):
+    if vfecha[x] == minf:
+        print(f'legajo {vlegajo[x]}, sueldo {vsueldo[x]}, de la persona con mas antiguedad')
