@@ -400,32 +400,136 @@ Se ingresan los datos de 200 empleados de una empresa:
     fecha: str()
 Mostar el legajo y sueldo de la persona con mayor antiguedad. (puede repetirse)
 '''
-def convertir(pfecha):
-    fechastr = str()
-    fechaint = int()
+# def convertir(pfecha):
+#     fechastr = str()
+#     fechaint = int()
 
-    fechastr = pfecha[6:] + pfecha[3:5] + pfecha[:2]
-    fechaint = int(fechastr)
-    return(fechaint)
+#     fechastr = pfecha[6:] + pfecha[3:5] + pfecha[:2]
+#     fechaint = int(fechastr)
+#     return(fechaint)
 
-legajo = int()
-sueldo = float()
-fecha = str()
-vfecha = [int()] * 200
-vlegajo = [int()] * 200
-vsueldo = [float()] * 200
-minf = 30000000
+# legajo = int()
+# sueldo = float()
+# fecha = str()
+# vfecha = [int()] * 200
+# vlegajo = [int()] * 200
+# vsueldo = [float()] * 200
+# minf = 30000000
 
-for x in range(0,2):
-    legajo = int(input("legajo: "))
-    sueldo = float(input("sueldo: "))
-    fecha = input("fecha [dd/mm/aaaa]: ")
+# for x in range(0,2):
+#     legajo = int(input("legajo: "))
+#     sueldo = float(input("sueldo: "))
+#     fecha = input("fecha [dd/mm/aaaa]: ")
 
-    vfecha[x] = convertir(fecha)
-    if vfecha[x] <= minf:
-        minf = vfecha[x]
-        vlegajo[x] = legajo
-        vsueldo[x] = sueldo
-for x in range(0,2):
-    if vfecha[x] == minf:
-        print(f'legajo {vlegajo[x]}, sueldo {vsueldo[x]}, de la persona con mas antiguedad')
+#     vfecha[x] = convertir(fecha)
+#     if vfecha[x] <= minf:
+#         minf = vfecha[x]
+#         vlegajo[x] = legajo
+#         vsueldo[x] = sueldo
+# for x in range(0,2):
+#     if vfecha[x] == minf:
+#         print(f'legajo {vlegajo[x]}, sueldo {vsueldo[x]}, de la persona con mas antiguedad')
+
+'''
+Se ingresan los datos de 5mil estudiantes 
+    legajo
+    apellido
+    edad
+    sexo
+mostrar:
+    legajo, apellido de los hombres de mayor edad(puede repetirse)
+    legajo, apellido de las mujeres de mayor edad(puede repetirse)
+'''
+# elementos = 2
+# ape = str()
+# legajo = int()
+# edad = int()
+# sexo = str()
+# vape = [str()] * elementos
+# vlega = [int()] * elementos
+# vedad = [int()] * elementos
+# vsexo = [str()] * elementos
+# maxieh = maxiem = int()
+# auxiapeh = auxiapem = str()
+# auxilegah = auxilegam = int()
+
+# for x in range(0, elementos):
+#     ape = input("ingrese apellido: ")
+#     legajo = int(input("ingrese legajo: "))
+#     edad = int(input("ingrese edad: "))
+#     sexo = input("ingrese sexo [M, H]: ")
+#     vape[x] = ape
+#     vlega[x] = legajo
+#     vedad[x] = edad
+#     vsexo[x] = sexo
+# print(vape, vlega, vedad, vsexo) 
+
+# for x in range(0, elementos):
+#     if vsexo[x] == "H":
+#         if vedad[x] > maxieh:
+#             maxieh = vedad[x]
+#             auxiapeh = vape[x]
+#             auxilegah = vlega[x]
+#     if vsexo[x] == "M":
+#         if vedad[x] > maxiem:
+#             maxiem = vedad[x]
+#             auxiapem = vape[x]
+#             auxilegam = vlega[x]
+
+# for x in range(0, elementos):
+#     if vsexo[x] == "H":
+#         if vedad[x] == maxieh:
+#             print(f'los que tienen la mayor edad son los estudiantes {x}')
+#     if vsexo[x] == "M":
+#         if vedad[x] == maxiem:
+#             pritn(x)
+
+# print(f'Hombre de mayor edad es {auxiapeh}, nro lega {auxilegah} con {maxieh} años')
+# print(f'Mujer de mayor edad es {auxiapem}, nro lega {auxilegam} con {maxiem} años')
+
+'''
+Realizar programacion modular 
+Carga: debera permitir cargar un vector del tipo real con 500 elementos
+Calculo: debera recibir el vector cargado como parametro y devolver tres parametros, promedio de los numeros, mayor y menor numero
+Imprimir: este modulo recibe como parametro el promedio, mayor y menor devueltos por el modulo calculo y debera imprimirlos
+REALIZAR PROGRAMA PRINCIPAL
+'''
+
+def cargar():
+    x = int()
+    elementos = 3
+    vector = [int()] * elementos
+    nro = int()
+    for x in range(0,3):
+        nro = int(input("ingrese un nro: "))
+        vector[x] = nro
+    print(vector)
+    return(vector)
+
+def calculo(pvector):
+    nro = int()
+    mayor = menor = int()
+    acu = int()
+    cn = int()
+
+    menor = 999999
+    for nro in pvector:
+        acu = nro + acu
+        if nro > mayor:
+            mayor = nro
+        if nro < menor:
+            menor = nro
+
+    promedio = acu / len(pvector)
+    return(promedio,mayor, menor)
+
+def imprimir(promedio,mayor,menor):
+    print(promedio,mayor, menor)
+
+
+def main():
+    vector = cargar()
+    promedio, mayor, menor = calculo(vector)
+    imprimir(promedio,mayor,menor)
+
+main()
